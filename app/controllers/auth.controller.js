@@ -118,3 +118,13 @@ exports.getAll = (req, res) => {
       });
     });
 };
+
+exports.deleteUser = (req, res) => {
+  const id = req.params.id;
+
+  User.findByIdAndDelete(id)
+    .then(() => res.json({ Messsage: "User deleted!" }))
+    .catch((err) => {
+      res.status(500).send({ message: "Could not delete User with id=" + id });
+    });
+};
