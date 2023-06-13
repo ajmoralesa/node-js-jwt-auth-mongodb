@@ -1,22 +1,21 @@
 const db = require("../models");
 const Project = db.project;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
-
 exports.addproject = (req, res) => {
   const project = new Project({
     title: req.body.title,
     acronym: req.body.acronym,
+    chef: req.body.chef,
+    people: req.body.people,
   });
 
-  project.save((err, user) => {
+  project.save((err, project) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
     }
 
-    Project.save((err) => {
+    project.save((err) => {
       if (err) {
         res.status(500).send({ message: err });
         return;

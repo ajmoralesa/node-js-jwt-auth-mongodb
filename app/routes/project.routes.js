@@ -9,5 +9,5 @@ module.exports = function (app) {
     next();
   });
 
-  app.post("api/project/addproject", controller.);
+  app.post("/api/addproject", controller.addproject);
 };

@@ -5,12 +5,8 @@ const Project = mongoose.model(
   new mongoose.Schema({
     title: String,
     acronym: String,
-    people: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    chef: String,
+    people: String,
   })
 );
 
